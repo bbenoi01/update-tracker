@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     loading: false,
     errors: {},
     credentials: {},
-    requests: []
+    requests: [],
+    onlyMine: false
 };
 
 export default function AppReducer(state = INITIAL_STATE, action) {
@@ -28,6 +29,7 @@ export default function AppReducer(state = INITIAL_STATE, action) {
             return {
                 authenticated: true,
                 loading: false,
+                onlyMine: false,
                 ...payload
             };
         }
@@ -73,6 +75,13 @@ export default function AppReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 requests: payload
+            }
+        }
+
+        case (types.TOGGLE_CHECKBOX): {
+            return {
+                ...state,
+                onlyMine: payload
             }
         }
         
