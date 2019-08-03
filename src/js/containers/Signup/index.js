@@ -3,7 +3,8 @@ import Signup from './signup';
 
 function mapStoreToProps(store) {
     return {
-        errors: store.app.errors
+        errors: store.app.errors,
+        loading: store.app.loading
     }
 }
 

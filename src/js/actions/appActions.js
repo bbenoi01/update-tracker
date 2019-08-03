@@ -151,3 +151,10 @@ export function updateCompleted(requestId, name) {
             });
     }
 }
+
+export function toggleCheckbox(checked) {
+    return {
+        type: types.TOGGLE_CHECKBOX,
+        payload: checked
+    };
+}

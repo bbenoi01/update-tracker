@@ -11,15 +11,23 @@ export default class Navbar extends Component {
     }
 
     render() {
-        const { authenticated } = this.props;
+        const { authenticated, credentials } = this.props;
         console.log(authenticated);
+
+        let name;
+
+        if(credentials) {
+            name = 'Hello, ' + credentials.firstName;
+        } else {
+            name = 'Hello'
+        }
 
         return (
             <nav>
                 {authenticated ? (
                     <div className="nav-wrapper">
                         <ul className="left">
-                            <li>Hello</li>
+                            <li style={{padding: '0 15px'}}>{name}</li>
                         </ul>
                         <span className="brand-logo center">Xirgo Updates</span>
                         <ul className="right">
