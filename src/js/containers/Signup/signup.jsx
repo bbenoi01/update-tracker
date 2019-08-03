@@ -53,7 +53,7 @@ export default class Signup extends Component {
                                 <br/>
                                 <div className="row">
                                     <div className="input-field col s6 offset-s3">
-                                        <select name="color" id="color" className="browser-default" value={this.state.color} onChange={this.handleChange}>
+                                        <select name="color" id="color" /*className="browser-default"*/ value={this.state.color} onChange={this.handleChange}>
                                             <option value="" >Choose A Color...</option>
                                             <option value="red">Red</option>
                                             <option value="pink">Pink</option>
