@@ -15,6 +15,8 @@ import {
     getUserData
 } from './actions/appActions';
 
+axios.defaults.baseURL = "https://us-central1-update-tracker-5c606.cloudfunctions.net/api";
+
 const token = localStorage.FBIdToken;
 
 if(token) {
