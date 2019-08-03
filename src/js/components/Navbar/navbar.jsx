@@ -11,7 +11,7 @@ export default class Navbar extends Component {
     }
 
     render() {
-        const { authenticated, name } = this.props;
+        const { authenticated } = this.props;
         console.log(authenticated);
 
         return (
@@ -19,7 +19,7 @@ export default class Navbar extends Component {
                 {authenticated ? (
                     <div className="nav-wrapper">
                         <ul className="left">
-                            <li>Hello, {name}</li>
+                            <li>Hello</li>
                         </ul>
                         <span className="brand-logo center">Xirgo Updates</span>
                         <ul className="right">

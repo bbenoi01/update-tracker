@@ -4,7 +4,7 @@ import Navbar from './navbar';
 function mapStoreToProps(store){
     return {
         authenticated: store.app.authenticated,
-        name: store.app.credentials.firstName
+        // name: store.app.credentials.firstName
     }
 }
 
