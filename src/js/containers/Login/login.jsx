@@ -51,13 +51,14 @@ export default class Login extends Component {
                                             <input id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                                             <label htmlFor="email">Email</label>
                                         </div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.email}</div>
+                                        {!!errors ? (<div className="center" style={{ color: 'red' }}>{errors.email}</div>) : null}
+                                        
                                         <div className="input-field">
                                             <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                                             <label htmlFor="password">Password</label>
                                         </div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.password}</div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.general}</div>
+                                        {!!errors ? (<div className="center" style={{ color: 'red' }}>{errors.password}</div>) : null}
+                                        {!!errors ? (<div className="center" style={{ color: 'red' }}>{errors.general}</div>) : null}
                                     </div>
                                     <div className="card-action center">
                                         <button className="waves-effect waves-light black btn button" type="submit"><i className="material-icons left">send</i>Submit
