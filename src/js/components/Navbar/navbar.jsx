@@ -37,6 +37,9 @@ export default class Navbar extends Component {
                 ) : (
                     <div className="nav-wrapper">
                         <span className="brand-logo center">Xirgo Updates</span>
+                        <ul className="right">
+                            <li><a href="/">Login</a></li>
+                        </ul>
                     </div>
                 )}
             </nav>
