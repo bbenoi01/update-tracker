@@ -3,7 +3,6 @@ import '../css/style.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
-import Navbar from './components/Navbar';
 import AuthRoute from './util/AuthRoute';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
@@ -22,9 +21,8 @@ const token = localStorage.FBIdToken;
 if(token) {
   const decodedToken = jwtDecode(token);
   console.log(decodedToken);
-  if(decodedToken.exp * 4000 < Date.now()) {
+  if(decodedToken.exp * 1000 < Date.now()) {
     rootStore.dispatch(logoutUser());
-    window.location.href = '/';
   } else {
     rootStore.dispatch({ type: types.SET_UNAUTHENTICATED });
     axios.defaults.headers.common['Authorization'] = token;
@@ -37,7 +35,6 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
         <Switch>
           <AuthRoute exact path='/' component={Login}/>
           <AuthRoute exact path='/signup' component={Signup}/>

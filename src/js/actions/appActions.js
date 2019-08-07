@@ -9,6 +9,7 @@ export function setAuthorizationHeader(token) {
 }
 
 export function loginUser(userData, history) {
+    console.log('history', history);
     return (dispatch) => {
         dispatch({ type: types.LOADING_UI });
         axios.post('/login', userData)
@@ -71,6 +72,7 @@ export function logoutUser() {
         localStorage.removeItem('FBIdToken');
         delete axios.defaults.headers.common['Authorization'];
         dispatch({ type: types.SET_UNAUTHENTICATED });
+        window.location.href = '/';
     }
 }
 

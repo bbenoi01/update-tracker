@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Progress from '../../components/Progress';
+import Navbar from '../../components/Navbar';
 
 import {
     signupUser
@@ -41,10 +42,11 @@ export default class Signup extends Component {
     }
 
     render() {
-        const { errors, loading } = this.props;
+        const { loading, errors } = this.props;
 
         return (
             <div>
+                <Navbar/>
                 <div className="container">
                     <div className="row">
                         <div className="col s4 offset-s4">
@@ -86,32 +88,32 @@ export default class Signup extends Component {
                                                     <input id="firstName" name="firstName" type="text" value={this.state.firstName} onChange={this.handleChange}/>
                                                     <label htmlFor="firstName">First Name</label>
                                                 </div>
-                                            <div className="center" style={{ color: 'red' }}>{errors.firstName}</div>
+                                            {errors && <div className="center" style={{ color: 'red' }}>{errors.firstName}</div>}
                                             </div>
                                             <div className="col s6">
                                                 <div className="input-field">
                                                     <input id="lastName" name="lastName" type="text" value={this.state.lastName} onChange={this.handleChange}/>
                                                     <label htmlFor="lastName">Last Name</label>
                                                 </div>
-                                            <div className="center" style={{ color: 'red' }}>{errors.lastName}</div>
+                                            {errors && <div className="center" style={{ color: 'red' }}>{errors.lastName}</div>}
                                             </div>
                                         </div>
                                         <div className="input-field">
                                             <input id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                                             <label htmlFor="email">Email</label>
                                         </div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.email}</div>
+                                        {errors && <div className="center" style={{ color: 'red' }}>{errors.email}</div>}
                                         <div className="input-field">
                                             <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                                             <label htmlFor="password">Password</label>
                                         </div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.password}</div>
+                                        {errors && <div className="center" style={{ color: 'red' }}>{errors.password}</div>}
                                         <div className="input-field">
                                             <input id="confirmPassword" name="confirmPassword" type="password" value={this.state.confirmPassword} onChange={this.handleChange}/>
                                             <label htmlFor="confirmPassword">Confirm Password</label>
                                         </div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.confirmPassword}</div>
-                                        <div className="center" style={{ color: 'red' }}>{errors.general}</div>
+                                        {errors && <div className="center" style={{ color: 'red' }}>{errors.confirmPassword}</div>}
+                                        {errors && <div className="center" style={{ color: 'red' }}>{errors.general}</div>}
                                     </div>
                                     <div className="card-action center">
                                         <button className="waves-effect waves-light black btn button" type="submit"><i className="material-icons left">send</i>Submit
