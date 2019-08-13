@@ -29,7 +29,11 @@ export default class Navbar extends Component {
                         <ul className="left">
                             <li style={{padding: '0 15px'}}>{name}</li>
                         </ul>
-                        <span className="brand-logo center">Xirgo Updates</span>
+                        <div className="brand-logo center">
+                            <span style={{float: 'left'}}>Xirgo</span>
+                            <i className="fab fa-jedi-order fa-1x" style={{margin: '0px 15px', color: credentials.color}}/>
+                            <span>Updates</span>
+                        </div>
                         <ul className="right">
                             <li><a href="/" onClick={this.handleClick}>Logout</a></li>
                         </ul>
