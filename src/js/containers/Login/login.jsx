@@ -41,7 +41,7 @@ export default class Login extends Component {
                 <Navbar/>
                 <div className="container">
                     <div className="row">
-                        <div className="col s4 offset-s4">
+                        <div className="col s12 m4 offset-m4 l4 offset-l4">
                             <div className="card grey darken-3 white-text">
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="card-content">
