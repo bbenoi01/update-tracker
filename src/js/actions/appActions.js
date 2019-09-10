@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { types } from '../types';
 
-
 export function setAuthorizationHeader(token) {
     const FBIdToken = `Bearer ${token}`;
     localStorage.setItem('FBIdToken', FBIdToken);
