@@ -7,4 +7,5 @@ function mapStoreToProps(store) {
         loading: store.app.loading
     }
 }
+
 export default connect(mapStoreToProps)(Login);
