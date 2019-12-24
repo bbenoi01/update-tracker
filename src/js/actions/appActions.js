@@ -8,18 +8,15 @@ export function setAuthorizationHeader(token) {
 }
 
 export function loginUser(userData, history) {
-    console.log('history', history);
     return (dispatch) => {
         dispatch({ type: types.LOADING_UI });
         axios.post('/login', userData)
             .then(res => {
                 setAuthorizationHeader(res.data.token);
-                dispatch(getUserData());
-                dispatch({ type: types.CLEAR_ERRORS });
-                history.push('/home');
+                dispatch(loginUserData(history));
             })
             .catch(err => {
-                console.log(err);
+                console.log('error', err);
                 dispatch({
                     type: types.SET_ERRORS,
                     payload: err.response.data
@@ -28,15 +25,13 @@ export function loginUser(userData, history) {
     }
 }
 
-export function signupUser(newUserData, history) {
+export function signupUser(newUserData) {
     return (dispatch) => {
         dispatch({ type: types.LOADING_UI });
         axios.post('/signup', newUserData)
             .then(res => {
                 setAuthorizationHeader(res.data.token);
                 dispatch(getUserData());
-                dispatch({ type: types.CLEAR_ERRORS });
-                history.push('/home');
             })
             .catch(err => {
                 dispatch({
@@ -44,25 +39,6 @@ export function signupUser(newUserData, history) {
                     payload: err.response.data
                 })
             })
-    }
-}
-
-export function getUserData() {
-    return (dispatch) => {
-        dispatch({ type: types.LOADING_USER });
-        axios.get('/user')
-            .then(res => {
-                dispatch({
-                    type: types.SET_USER,
-                    payload: res.data
-                })
-            })
-            .catch(err => {
-                dispatch({
-                    type: types.SET_ERRORS,
-                    payload: err.response
-                })
-            });
     }
 }
 
@@ -70,8 +46,44 @@ export function logoutUser() {
     return (dispatch) => {
         localStorage.removeItem('FBIdToken');
         delete axios.defaults.headers.common['Authorization'];
-        dispatch({ type: types.SET_UNAUTHENTICATED });
+        // dispatch({ type: types.SET_UNAUTHENTICATED });
         window.location.href = '/';
+    }
+}
+
+export function loginUserData(history) {
+    // let landing;
+    return (dispatch) => {
+        axios.get('/user')
+            .then(res => {
+                if(res.data) {
+                    // landing = res.data.credentials.userType;
+                    dispatch({
+                        type: types.SET_USER,
+                        payload: res.data
+                    })
+                    dispatch({ type: types.CLEAR_ERRORS });
+                    // if(res.data.credentials.firstLogin === true) {
+                    //     history.push(`/${landing}/firstlogin`)
+                    // } else {
+                    //     history.push(`/${landing}/dashboard`);
+                    // }
+                }
+            })
+            .catch(err => console.log(err));
+    }
+};
+
+export function getUserData() {
+    return (dispatch) => {
+        axios.get('/user')
+            .then(res => {
+                dispatch({
+                    type: types.SET_USER,
+                    payload: res.data
+                })
+            })
+            .catch(err => console.log(err));
     }
 }
 

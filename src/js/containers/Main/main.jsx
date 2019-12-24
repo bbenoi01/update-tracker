@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ActiveUpdates from '../../components/ActiveUpdates';
-import ESNList from '../../components/ESNList';
-import AddUpdate from '../../components/AddUpdate';
 import Navbar from '../../components/Navbar';
+import ActiveUpdates from '../../views/ActiveUpdates';
+import ESNList from '../../views/ESNList';
+import AddUpdate from '../../views/AddUpdate';
 
 
 export default class Main extends Component {
