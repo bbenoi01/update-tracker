@@ -19,7 +19,7 @@ export function loginUser(userData, history) {
                 console.log('error', err);
                 dispatch({
                     type: types.SET_ERRORS,
-                    payload: err.response.data
+                    payload: err.response
                 })
             })
     }
@@ -36,7 +36,7 @@ export function signupUser(newUserData) {
             .catch(err => {
                 dispatch({
                     type: types.SET_ERRORS,
-                    payload: err.response.data
+                    payload: err.response
                 })
             })
     }
@@ -52,22 +52,15 @@ export function logoutUser() {
 }
 
 export function loginUserData(history) {
-    // let landing;
     return (dispatch) => {
         axios.get('/user')
             .then(res => {
                 if(res.data) {
-                    // landing = res.data.credentials.userType;
                     dispatch({
                         type: types.SET_USER,
                         payload: res.data
                     })
                     dispatch({ type: types.CLEAR_ERRORS });
-                    // if(res.data.credentials.firstLogin === true) {
-                    //     history.push(`/${landing}/firstlogin`)
-                    // } else {
-                    //     history.push(`/${landing}/dashboard`);
-                    // }
                 }
             })
             .catch(err => console.log(err));
