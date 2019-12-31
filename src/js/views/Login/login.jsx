@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import Progress from '../../components/Progress';
 
 import {
     loginUser
@@ -33,7 +34,7 @@ export default class Login extends Component {
     }
 
     render() {
-        const { errors } = this.props;
+        const { errors, loading } = this.props;
 
         return (
             <div>
@@ -61,7 +62,13 @@ export default class Login extends Component {
                                         {errors && <div className="center" style={{ color: 'red' }}>{errors.general}</div>}
                                     </div>
                                     <div className="card-action center">
-                                        <button className="waves-effect waves-light black btn button" type="submit"><i className="material-icons left">send</i>Submit</button>
+                                        {loading ? (
+                                            <button className="waves-effect waves-light black btn button" type="submit">
+                                                <i className="material-icons left">send</i><Progress className='progress'/>
+                                            </button>
+                                        ) : (
+                                            <button className="waves-effect waves-light black btn button" type="submit"><i className="material-icons left">send</i>Submit</button>
+                                        )}
                                     </div>
                                 </form>
                                 <div className="center">Don't have an account: Sign up <Link to="/signup">Here</Link></div>
