@@ -41,7 +41,7 @@ export default class AddUpdate extends Component {
     render() {
 
         return (
-            <div className="col s12 m4 l4" style={{marginBottom: '0'}}>
+            <div className="col s12 m3 l3" style={{marginBottom: '0'}}>
                 <form id="addForm" onSubmit={this.handleClick}>
                     <div className="card grey darken-3 white-text">
                         <div className="card-content">

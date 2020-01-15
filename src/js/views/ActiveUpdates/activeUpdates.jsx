@@ -28,7 +28,7 @@ export default class ActiveUpdates extends Component {
         console.log('mine', onlyMine);
 
         return (
-            <div className="col s12 m5 l5">
+            <div className="col s12 m4 l4">
                 <div className="card grey darken-3 white-text">
                     <div className="card-content">
                         <span className="card-title center"><b>Active Updates</b>
