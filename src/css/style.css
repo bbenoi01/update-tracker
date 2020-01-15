@@ -17,7 +17,7 @@ nav {
     position: absolute
 }
 
-#activeUpdates, #esnList, #list {
+#activeUpdates, #esnList, #gsmList, #list {
     height: 75vh;
     overflow: auto;
 }
