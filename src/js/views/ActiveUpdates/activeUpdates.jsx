@@ -28,7 +28,7 @@ export default class ActiveUpdates extends Component {
         console.log('mine', onlyMine);
 
         return (
-            <div className="col s12 m4 l4">
+            <div className="col s12 m3 l3">
                 <div className="card grey darken-3 white-text">
                     <div className="card-content">
                         <span className="card-title center"><b>Active Updates</b>
@@ -57,8 +57,9 @@ export default class ActiveUpdates extends Component {
                                                 </div>
                                             </div>
                                             <p className={request.color + '-text'}><b className="white-text">GSM:</b> {request.gsm}</p>
-                                            <p className="red-text"><b className="white-text">Started:</b> {dayjs(request.created).format('MM/DD/YY') + ' '}<small className="white-text">{' ' + dayjs(request.created).fromNow()}</small></p>
-                                            <p className={request.color + '-text'}><b className="white-text">Processed By:</b> {request.processor}</p>
+                                            <p className="red-text"><b className="white-text">Started:</b> {dayjs(request.created).format('MM/DD/YY') + ' '}</p>
+                                            {/* <small className="white-text">{' ' + dayjs(request.created).fromNow()}</small> */}
+                                            {/* <p className={request.color + '-text'}><b className="white-text">Processed By:</b> {request.processor}</p> */}
                                         </div>
                                         <div className="card-action center">
                                             <button className="waves-effect waves-light grey darken-3 btn" id={request.requestId} onClick={this.handleClick}>Complete</button>
@@ -78,10 +79,11 @@ export default class ActiveUpdates extends Component {
                                                 </div>
                                             </div>
                                             <p className={request.color + '-text'}><b className="white-text">GSM:</b> {request.gsm}</p>
-                                            <p className="red-text"><b className="white-text">Started:</b> {dayjs(request.created).format('MM/DD/YY') + ' '}<small className="white-text">{' ' + dayjs(request.created).fromNow()}</small></p>
-                                            {credentials.firstName === 'Brandon' ? (
+                                            <p className="red-text"><b className="white-text">Started:</b> {dayjs(request.created).format('MM/DD/YY') + ' '}</p>
+                                            {/* <small className="white-text">{' ' + dayjs(request.created).fromNow()}</small> */}
+                                            {/* {credentials.firstName === 'Brandon' ? (
                                                 <p className={request.color + '-text'}><b className="white-text">Processed By:</b> {request.processor}</p>
-                                            ) : null }
+                                            ) : null } */}
                                         </div>
                                         <div className="card-action center">
                                             <button className="waves-effect waves-light grey darken-3 btn" id={request.requestId} onClick={this.handleClick}>Complete</button>
