@@ -31,7 +31,7 @@ export default class GSMList extends Component {
         }
 
         return (
-            <div className="col s12 m3 l3">
+            <div className="col s12 m2 l2">
                 <div className="card grey darken-3 white-text center">
                     {content}
                 </div>

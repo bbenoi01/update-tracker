@@ -12,13 +12,11 @@ export default class Main extends Component {
         return (
             <div>
                 <Navbar/>
-                <div className="container">
-                    <div className="row">
-                        <ActiveUpdates />
-                        <ESNList />
-                        <GSMList />
-                        <AddUpdate />
-                    </div>
+                <div className="row">
+                    <ActiveUpdates />
+                    <ESNList />
+                    <GSMList />
+                    <AddUpdate />
                 </div>
             </div>
         );
