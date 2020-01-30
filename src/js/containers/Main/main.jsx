@@ -5,8 +5,16 @@ import ESNList from '../../views/ESNList';
 import GSMList from '../../views/GSMList';
 import AddUpdate from '../../views/AddUpdate';
 
+import {
+    getAllRequests
+} from '../../actions/appActions';
 
 export default class Main extends Component {
+
+    componentDidMount = () => {
+        const { dispatch } = this.props;
+        dispatch(getAllRequests());
+    }
     
     render() {
         return (
