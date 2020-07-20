@@ -92,7 +92,7 @@ export function getAllRequests() {
             .catch(err => {
                 dispatch({
                     type: types.SET_ERRORS,
-                    payload: err.response
+                    payload: err.response.data
                 })
             });
     }
@@ -120,18 +120,18 @@ export function addUpdateRequest(newRequestData, name) {
     return (dispatch) => {
         axios.post('/user/request', newRequestData)
             .then(res => {
-                if(name === 'Benoit') {
+                // if(name === 'Benoit') {
                     alert('Request added successfully');
                     dispatch(getAllRequests());
-                } else {
-                    alert('Request added successfully');
-                    dispatch(getUserRequests());
-                }
+                // } else {
+                //     alert('Request added successfully');
+                //     dispatch(getUserRequests());
+                // }
             })
             .catch(err => {
                 dispatch({
                     type: types.SET_ERRORS,
-                    payload: err.response
+                    payload: err.response.data
                 })
             });
     }
@@ -141,18 +141,18 @@ export function updateCompleted(requestId, name) {
     return (dispatch) => {
         axios.delete(`/request/${requestId}`)
             .then(res => {
-                if(name === 'Benoit') {
+                // if(name === 'Benoit') {
                     alert('Request completed successfully');
                     dispatch(getAllRequests());
-                } else {
-                    alert('Request completed successfully');
-                    dispatch(getUserRequests());
-                }
+                // } else {
+                //     alert('Request completed successfully');
+                //     dispatch(getUserRequests());
+                // }
             })
             .catch(err => {
                 dispatch({
                     type: types.SET_ERRORS,
-                    payload: err.response
+                    payload: err.response.data
                 })
             });
     }
